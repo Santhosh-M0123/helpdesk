@@ -1,0 +1,120 @@
+.nav {
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 10px 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+}
+
+.logoContainer img {
+  margin-right: 0.5rem;
+}
+
+.logoContainer span {
+  color: white;
+}
+
+.navMenu {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navMenu a {
+  color: white;
+  text-decoration: none;
+}
+
+.navMenu a:hover {
+  text-decoration: underline;
+}
+
+.toggleButton {
+  display: none;
+  background: transparent;
+  color: white;
+  font-size: 20px;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.actionButton {
+  border-radius: 5px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Mobile screens */
+@media (max-width: 600px) {
+  .nav {
+    padding: 10px 20px;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .toggleButton {
+    display: block;
+  }
+
+  .navMenu {
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    margin-top: 10px;
+    order: 3;
+  }
+
+  .navMenu.showMenu {
+    display: flex;
+  }
+
+  .navMenu li {
+    padding: 10px 0;
+  }
+
+  .actionButton {
+    order: 2;
+    display: none;
+  }
+
+  .navMenu.showMenu ~ .actionButton {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+/* Tablets */
+@media (min-width: 601px) and (max-width: 900px) {
+  .nav {
+    padding: 10px 40px;
+  }
+
+  .navMenu {
+    gap: 0.75rem;
+  }
+}
+
+/* Desktops */
+@media (min-width: 901px) {
+  .nav {
+    padding: 10px 100px;
+  }
+}

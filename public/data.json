@@ -1,0 +1,36 @@
+{
+    "Navbar":{
+        "logo": {
+            "url": "https://www.netzwerk.net.in/Images/favicon.png",
+            "label": "HelpDesk"
+        },
+        "list": [{
+            "item": "Home",
+            "href": "path/to/home"
+        },
+        {
+            "item": "About",
+            "href": "path/to/about"
+        },
+        {
+            "item": "Contact",
+            "href": "path/to/contact"
+        }
+        ],
+        "button":{
+            "label": "Get Started",
+            "action": "path/to/get-started",
+            "style":{
+                "backgroundColor": "#61dafb",
+                "color": "#282c34"
+            }
+        },
+        "style":{
+            "backgroundColor": "rgba(0, 0, 0, 0.2)",
+            "color": "#61dafb",
+            "fontFamily": "'Arial', sans-serif",
+            "position": "fixed"
+        }
+    
+    }
+}
