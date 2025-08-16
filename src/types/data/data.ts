@@ -35,5 +35,10 @@ export interface NavbarData {
 }
 
 export interface AppData {
-  Navbar: NavbarData;
+  Navbar?: NavbarData;
+  milkdown?: Milkdown;
+}
+
+export interface Milkdown {
+  data: string;
 }

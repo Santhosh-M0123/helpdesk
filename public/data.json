@@ -32,5 +32,8 @@
             "position": "fixed"
         }
     
+    },
+    "milkdown": {
+        "data": "# Hello World\nThis is a **Markdown** example.\n\n- Item 1\n- Item 2\n- Item 3\n\n[Click me](https://example.com)"
     }
 }

@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
-import type { AppData } from "./types/data/data";
 import { useAppData } from "./hooks/useAppData";
 import Navbar from "./components/navbar/navbar";
+import Milkdown from "./components/milkdown/milkdown";
 import "./App.css";
 
 const App = () => {
@@ -12,7 +11,10 @@ const App = () => {
 
   return (
     <div>
-      {data && <Navbar navBarData={data?.Navbar} />}
+      {data?.Navbar && <Navbar navBarData={data.Navbar} />}
+      <div className="milkdown-container">
+      {data?.milkdown && <Milkdown MilkdownData={data.milkdown} />}
+      </div>
     </div>
   );
 };
