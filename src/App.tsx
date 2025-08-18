@@ -12,9 +12,7 @@ const App = () => {
   return (
     <div>
       {data?.Navbar && <Navbar navBarData={data.Navbar} />}
-      <div className="milkdown-container">
       {data?.milkdown && <Milkdown MilkdownData={data.milkdown} />}
-      </div>
     </div>
   );
 };

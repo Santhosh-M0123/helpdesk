@@ -4,6 +4,7 @@ import rehypeStringify from "rehype-stringify";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
+import inBuiltstyles from"./milkdown.module.css";
 
 export default function Milkdown({
   MilkdownData,
@@ -27,5 +28,5 @@ export default function Milkdown({
         processorMarkdown();
     }, [MilkdownData.data])
 
-  return <div dangerouslySetInnerHTML={{ __html: html }} />;
+  return <div className={inBuiltstyles["markdown-body"]} dangerouslySetInnerHTML={{ __html: html }} />;
 }

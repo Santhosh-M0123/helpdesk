@@ -13,8 +13,8 @@ async function fetchData(): Promise<AppData> {
 
 export function useAppData() {
   return useQuery<AppData>({
-    queryKey: ["appData"], // Unique cache key
+    queryKey: ["appData"],
     queryFn: fetchData,
-    staleTime: 5 * 60 * 1000, // 5 min cache
+    staleTime: 15 * 60 * 1000,
   });
 }
