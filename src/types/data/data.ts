@@ -1,6 +1,7 @@
 export interface NavbarLink {
     item: string;
     url: string;
+    icon: string;
 }
 
 export interface NavButton {
@@ -32,6 +33,12 @@ export interface NavbarData {
   list: NavbarLink[];
   button: NavButton;
   style: NavbarStyle;
+}
+
+export interface NavbarProps {
+  navBarData: NavbarData;
+  isCollapsed: boolean;
+  onToggleSidebar: () => void;
 }
 
 export interface AppData {

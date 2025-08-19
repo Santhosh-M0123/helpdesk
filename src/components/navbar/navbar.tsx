@@ -1,36 +1,24 @@
-import { useState } from "react";
-import { type NavbarData } from "../../types/data/data";
 import inBuiltstyles from "./Navbar.module.css";
+import {type NavbarProps } from "../../types/data/data";
 
-interface NavbarProps {
-  navBarData: NavbarData;
-}
-
-export default function Navbar({ navBarData }: NavbarProps) {
-  const { logo, list, button, style } = navBarData;
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+export default function Navbar({ navBarData, isCollapsed, onToggleSidebar }: NavbarProps) {
+  const { logo, button, style } = navBarData;
 
   return (
     <nav style={style} className={inBuiltstyles.nav}>
-      <div className={inBuiltstyles.logoContainer}>
-        <img src={logo.url} alt={logo.label} style={{ height: "40px" }} />
-        <span>{logo.label}</span>
+      <div className={inBuiltstyles.leftSection}>
+        <button 
+          className={inBuiltstyles.sidebarToggle}
+          onClick={onToggleSidebar}
+          aria-label="Toggle sidebar"
+        >
+          {isCollapsed ? '☰' : '✕'}
+        </button>
+        <div className={inBuiltstyles.logoContainer}>
+          <img src={logo.url} alt={logo.label} className={inBuiltstyles.logo} />
+          {!isCollapsed && <h1 className={inBuiltstyles.logoText}>{logo.label}</h1>}
+        </div>
       </div>
-
-      <button 
-        className={inBuiltstyles.toggleButton}
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-      >
-        ☰
-      </button>
-
-      <ul className={`${inBuiltstyles.navMenu} ${isMenuOpen ? inBuiltstyles.showMenu : ''}`}>
-        {list.map((element, index) => (
-          <li key={index}>
-            <a href={element.url}>{element.item}</a>
-          </li>
-        ))}
-      </ul>
       
       <button 
         className={inBuiltstyles.actionButton}

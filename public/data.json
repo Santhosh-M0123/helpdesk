@@ -6,15 +6,18 @@
         },
         "list": [{
             "item": "Home",
-            "href": "path/to/home"
+            "href": "path/to/home",
+            "icon": "Home"
         },
         {
             "item": "About",
-            "href": "path/to/about"
+            "href": "path/to/about",
+            "icon": "Info"
         },
         {
             "item": "Contact",
-            "href": "path/to/contact"
+            "href": "path/to/contact",
+            "icon": "Phone"
         }
         ],
         "button":{
@@ -26,8 +29,8 @@
             }
         },
         "style":{
-            "backgroundColor": "rgba(0, 0, 0, 0.2)",
-            "color": "#61dafb",
+            "backgroundColor": "rgba(250, 250, 250)",
+            "color": "black",
             "fontFamily": "'Arial', sans-serif",
             "position": "fixed"
         }

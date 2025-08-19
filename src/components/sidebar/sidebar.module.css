@@ -1,0 +1,92 @@
+/* sidebar.module.css */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgb(255, 255, 255);
+  border-right: 1px solid rgba(186, 186, 186, 0.515);
+  box-shadow: 2px 0px 5px 0px rgba(191, 191, 191, 0.75);
+  transition: width 0.3s ease;
+  z-index: 900;
+  padding-top: 80px; /* Account for navbar height */
+}
+
+.sidebar.collapsed {
+  width: 80px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 12px;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #4b5563;
+  transition: all 0.2s;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.listItem:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #111827;
+}
+
+.itemText {
+  font-weight: 500;
+}
+
+.sidebar.collapsed .listItem {
+  justify-content: center;
+  padding: 16px 12px;
+}
+
+/* App.css */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f9fafb;
+}
+
+.main-content {
+  flex: 1;
+  transition: margin-left 0.3s ease, width 0.3s ease;
+  padding: 20px;
+  padding-top: 80px; /* Account for fixed navbar */
+}
+
+/* Mobile screens */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 0;
+    overflow: hidden;
+    padding: 0;
+    padding-top: 80px;
+    z-index: 800;
+  }
+  
+  .sidebar:not(.collapsed) {
+    width: 250px;
+  }
+  
+  .main-content {
+    margin-left: 0 !important;
+    width: 100% !important;
+    padding: 16px;
+    padding-top: 80px;
+  }
+}
