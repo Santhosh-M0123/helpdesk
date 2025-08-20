@@ -46,6 +46,49 @@ export interface AppData {
   milkdown?: Milkdown;
 }
 
+
+export interface MarkdownData {
+  aliasId?: string;
+  collectionId?: string;
+  data?: string; // markdown content
+  type?: "markdown" | string;
+  source?: string;
+  metadata?: Metadata;
+  name?: string;
+  keywords?: string[];
+  length?: number;
+  refLinks?: string[];
+  chunkIds?: string[];
+  sotLink?: string | null;
+  createdAt?: string; // ISO string
+  updatedAt?: string; // ISO string
+  deletedAt?: string | null;
+  collection?: Collection;
+}
+
+export interface Metadata {
+  author: string;
+  [key: string]: any; // allows extra metadata
+}
+
+export interface Collection {
+  aliasId: string;
+  collectionName: string;
+}
+
 export interface Milkdown {
-  data: string;
+  success: boolean;
+  message: string;
+  timestamp: string; // ISO string
+  data: {
+    documents: MarkdownData[];
+    pagination?: Pagination;
+  };
+}
+
+export interface Pagination {
+  total?: number;
+  limit?: number;
+  page?: number;
+  totalPages?: number;
 }

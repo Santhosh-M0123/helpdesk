@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useAppData } from "./hooks/useAppData";
 import Navbar from "./components/navbar/navbar";
-import Milkdown from "./components/milkdown/milkdown";
 import Sidebar from "./components/sidebar/sidebar";
 import "./App.css";
+import Detail from "./pages/detail/Detail";
 
 const App = () => {
   const { data, error, isLoading } = useAppData();
@@ -28,6 +28,8 @@ const App = () => {
       <div 
         className="main-content" 
         style={{ 
+          padding: '80px',
+          marginTop: '64px',
           marginLeft: isSidebarCollapsed ? '80px' : '250px',
           width: isSidebarCollapsed ? 'calc(100% - 80px)' : 'calc(100% - 250px)'
         }}
@@ -39,7 +41,8 @@ const App = () => {
             onToggleSidebar={toggleSidebar}
           />
         )}
-        {data?.milkdown && <Milkdown MilkdownData={data.milkdown} />}
+        {/* {data?.milkdown && <Milkdown MilkdownData={data.milkdown} />} */}
+        {data?.milkdown && <Detail milkdown={data?.milkdown} />}
       </div>
     </div>
   );

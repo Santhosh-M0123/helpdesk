@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
-import { type Milkdown } from "../../types/data/data";
 import rehypeStringify from "rehype-stringify";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
-import inBuiltstyles from"./milkdown.module.css";
+import inBuiltstyles from "./ViewMarkDown.module.css"
 
-export default function Milkdown({
-  MilkdownData,
+export default function ViewMarkDown({
+  markdown,
 }: {
-  MilkdownData: Milkdown;
+  markdown: string;
 }) {
   const [html, setHtml] = useState<string>("");
 
@@ -20,13 +19,13 @@ export default function Milkdown({
             .use(remarkRehype, { allowDangerousHtml: true })
             .use(rehypeStringify);
 
-
-            const file = await processor.process(MilkdownData.data);
+            console.log("the data is : ", markdown);
+            const file = await processor.process(markdown);
           setHtml(String(file));
         };
 
         processorMarkdown();
-    }, [MilkdownData.data])
+    }, [markdown])
 
   return <div className={inBuiltstyles["markdown-body"]} dangerouslySetInnerHTML={{ __html: html }} />;
 }

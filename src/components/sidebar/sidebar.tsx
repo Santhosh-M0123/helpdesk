@@ -29,12 +29,12 @@ export default function Sidebar({ navBarData, isCollapsed }: NavbarProps) {
       style={{ backgroundColor: navBarData.style.backgroundColor }}
     >
       <nav className={inBuiltstyles.nav}>
-        {navBarData.list.map((item) => {
+        {navBarData.list.map((item,index) => {
           const Icon = icons[item.icon];
 
           return (
             <a
-              key={item.url}
+              key={index}
               href={item.url}
               className={inBuiltstyles.listItem}
               title={isCollapsed ? item.item : undefined}
